@@ -22,13 +22,13 @@ class TypeSeeder extends Seeder
         $full_stack->save();
         //front_end Type
         $front_end=new Type();
-        $front_end->name="Full Stack";
+        $front_end->name="Front end";
         $front_end->description="project worked on both frontend side";
         $front_end->icon="fa-firefox-browser";
         $front_end->save();
         //back_end Type
         $back_end=new Type();
-        $back_end->name="Full Stack";
+        $back_end->name="Backend";
         $back_end->description="project worked on both  backend side";
         $back_end->icon="fa-solid fa-desktop";
         $back_end->save();

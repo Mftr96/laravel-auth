@@ -9,7 +9,7 @@
             <div class="col-md-12">
 
                 <ul>
-                    @foreach ($type as $tipo)
+                    @foreach ($tipi as $tipo)
 
                         <li><a href="{{ route("admin.types.show", $tipo) }}">{{ $tipo->name }}</a></li>
 

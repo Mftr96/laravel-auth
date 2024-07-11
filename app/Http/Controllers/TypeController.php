@@ -15,7 +15,7 @@ class TypeController extends Controller
          $types = Type::all();
 
          $data = [
-             "categorie" => $types
+             "tipi" => $types
          ];
          //creare cartella type in views con file index 
          return view("admin.types.index", $data);
