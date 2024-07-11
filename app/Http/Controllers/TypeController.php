@@ -18,7 +18,7 @@ class TypeController extends Controller
              "categorie" => $types
          ];
          //creare cartella type in views con file index 
-         //return view("admin.type.index", $data);
+         return view("admin.types.index", $data);
 
     }
 

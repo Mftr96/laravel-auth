@@ -289,7 +289,5 @@ quindi nel file TypeController, vado a scrivere le funzioni C.R.U.D.
 
     }
 ```
-
-
-
 creare le viste relative alla cartella types(index,create,show)
+copio le viste dagli altri file e modifico gli attributi name negli input in modo che combacino con le colonne della tabella Types
