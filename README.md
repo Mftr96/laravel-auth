@@ -294,6 +294,7 @@ copio le viste dagli altri file e modifico gli attributi name negli input in mod
 
 aggiungere il bottone Add Type nel layout admin :fatto
 implementare la funzione per distruggere un dato nella cartella types and project
+(domande da fare a Luca per settimana prossima:si può implementare event listener che lanci un alert per dare conferma per il delete? una roba simile a vue)
 
 fine milestone 1
 -------------
