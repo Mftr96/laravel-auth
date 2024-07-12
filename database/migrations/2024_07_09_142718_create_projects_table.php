@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string("name");
             $table->string("description");
             $table->date("creation_date");
+            $table->foreignId('type_id')->constrained();
             $table->boolean("is_completed");
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

@@ -188,7 +188,6 @@ $full_stack->icon="fa-solid fa-sitemap";
 <i class="fa-solid fa-desktop"></i>//per backend
 ```
 
-
 lanciare poi il comando
 ```bash
   php artisan make:migration 
@@ -246,7 +245,7 @@ quindi nel file TypeController, vado a scrivere le funzioni C.R.U.D.
             "icon" => "required",
         ]);
         $newType = new Type();
-        $newProject->fill($data);
+        $newType->fill($data);
         dump($data);
         
         $newType->save();
