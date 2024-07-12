@@ -7,5 +7,7 @@
 		<li>Descrizione: {{ $project['description'] }}</li>
 		<li>Data di creazione: {{ $project['creation_date'] }}</li>
 	</ul>
+	<a href="{{ route("admin.project.index") }}" class="btn btn-primary">Torna alla lista  dei progetti</a>
+	<a href="{{ route("admin.project.destroy",$project) }}" class="btn btn-danger">distruggi  progetto </a>
 
 @endsection

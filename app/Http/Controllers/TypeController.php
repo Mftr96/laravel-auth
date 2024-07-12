@@ -12,14 +12,13 @@ class TypeController extends Controller
      */
     public function index()
     {
-         $types = Type::all();
+        $types = Type::all();
 
-         $data = [
-             "tipi" => $types
-         ];
-         //creare cartella type in views con file index 
-         return view("admin.types.index", $data);
-
+        $data = [
+            "tipi" => $types
+        ];
+        //creare cartella type in views con file index 
+        return view("admin.types.index", $data);
     }
 
     /**
@@ -28,7 +27,6 @@ class TypeController extends Controller
     public function create()
     {
         return view('admin.types.create');
-
     }
 
     /**
@@ -36,19 +34,20 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-                //sono i dati che attivano dal form
-                $data = $request->validate([
-                    "name" => "required|min:5|max:50",
-                    "description" => "required|min:10|max:200",
-                    "icon" => "required",
-                ]);
-                $newType = new Type();
-                $newType->fill($data);
-                dump($data);
-                
-                $newType->save();
-                return redirect()->route('admin.types.show', ['type' => $newType]);
-        
+        //sono i dati che attivano dal form
+        $data = $request->validate([
+            "name" => "required|min:5|max:50",
+            "description" => "required|min:10|max:200",
+            "icon" => "required",
+        ]);
+        $newType = new Type();
+        $newType->fill($data);
+        dump($data);
+        /*controlla che in questa funzione ci siano tutti i dati:
+                se lasci dei dati che hanno un valore predefinito,
+                assegna quel valore nella funzione */
+        $newType->save();
+        return redirect()->route('admin.types.show', ['type' => $newType]);
     }
 
     /**
@@ -71,7 +70,6 @@ class TypeController extends Controller
             'type' => $type
         ];
         return view('admin.types.edit', $data);
-
     }
 
     /**
@@ -81,14 +79,13 @@ class TypeController extends Controller
     {
         $data = $request->all();
 
-        $type->name= $data['name'];
-        $type->description= $data['description'];
-        $type->creation_date= $data['creation_date'];
+        $type->name = $data['name'];
+        $type->description = $data['description'];
+        $type->creation_date = $data['creation_date'];
 
         $type->save();
 
-        return redirect()->route('project.show', ['project'=> $type] );
-
+        return redirect()->route('project.show', ['project' => $type]);
     }
 
     /**
@@ -96,8 +93,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+        dd($type);
         $type->delete();
         return redirect()->route('admin.types.index');
-
     }
 }

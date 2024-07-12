@@ -12,7 +12,7 @@
             <input type="text" class="form-control" name="description" id="description">
         </div>
         <div class="mb-3">
-            <label for="creation_date" class="form-label">Cration date</label>
+            <label for="creation_date" class="form-label">Icon </label>
             <input type="text" class="form-control" name="icon" id="creation_date">
         </div>
         <button type="submit" class="btn btn-primary">Crea nuovo Tipo</button>

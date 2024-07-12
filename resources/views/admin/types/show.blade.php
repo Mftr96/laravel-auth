@@ -15,6 +15,7 @@
                 </ul>
 
                 <a href="{{ route("admin.types.index") }}" class="btn btn-primary">Torna alla lista tipi di progetto</a>
+                <a href="{{ route("admin.types.destroy",$type) }}" class="btn btn-danger">distruggi tipo progetto </a>
 
             </div>
         </div>

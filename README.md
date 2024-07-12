@@ -290,4 +290,10 @@ quindi nel file TypeController, vado a scrivere le funzioni C.R.U.D.
     }
 ```
 creare le viste relative alla cartella types(index,create,show)
-copio le viste dagli altri file e modifico gli attributi name negli input in modo che combacino con le colonne della tabella Types
+copio le viste dagli altri file e modifico gli attributi name negli input in modo che combacino con le colonne della tabella Types :fatto
+
+aggiungere il bottone Add Type nel layout admin :fatto
+implementare la funzione per distruggere un dato nella cartella types and project
+
+fine milestone 1
+-------------

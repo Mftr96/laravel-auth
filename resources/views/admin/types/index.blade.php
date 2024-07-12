@@ -12,6 +12,7 @@
                     @foreach ($tipi as $tipo)
 
                         <li><a href="{{ route("admin.types.show", $tipo) }}">{{ $tipo->name }}</a></li>
+                        
 
                     @endforeach
                 </ul>
