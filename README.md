@@ -297,3 +297,38 @@ implementare la funzione per distruggere un dato nella cartella types and projec
 
 fine milestone 1
 -------------
+milestone 2:aggiungere la colonna del type id sulla tabella project.
+per aggiungere la nuova colonna alla tabella bisogna prima creare la tabella degli id e poi la tabella project e anche popolarle in questa direzione.
+quindi il DatabaseSeeder dovrà averew i seeder in quest'ordine:
+
+```php
+   public function run()
+    {
+        $this->call([
+            UserSeeder::class,
+            TypeSeeder::class,
+            ProjectsTableSeeder::class,
+        ]);
+    }
+
+```
+
+se i seeder sono nell'ordine giusto non restituiscono errori(gli errori possibili sono 1452 o 1362)
+
+andare a modificare la migration della tabella Project aggiungendo il dato id della tabella type.
+Il file Create_projects_table viene implementato con la migration aggiornata (update_projects_table)
+
+```php
+  public function up(): void
+    {
+        //comando che richiama tabella Projects(?)
+        Schema::table('projects', function (Blueprint $table) {
+            $table->foreignId('type_id')->constrained();
+        });
+    }
+// probabilmente si può fare anche senza una nuova migration, ma non ci sono riuscito prima perchè c'era il problema del seeder
+```
+
+dopo aver fatto la popolazione dati, la nuova colonna è già disponibile dalle crud poichè il nuovo dato fa parte sempre di project
+
+andando nel file index sulla cartella, aggiungo l'interpolata {{$progetti->type->name}}
