@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string("name");
             $table->string("description");
             $table->date("creation_date");
-            // $table->foreignId('type_id')->constrained(table:'types',indexName: 'posts_user_id');
             $table->boolean("is_completed");
         });
     }
