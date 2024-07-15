@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("name");
             $table->string("description");
             $table->date("creation_date");
-            $table->boolean("is_completed");
+            $table->boolean("is_completed");    
         });
     }
     

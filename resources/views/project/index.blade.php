@@ -7,6 +7,7 @@
         <h3>Project Name: {{ $progetti->name }}</h3>
         <p>Description: {{ $progetti->description }}</p>
         <p>creation date: {{ $progetti->creation_date }}</p>
+        <p>tipo progetto:{{$progetti->type->name}}</p>
         <a href="{{ route('admin.project.show', $progetti) }}">{{ $progetti->name }}</a>
     @endforeach
 @endsection
