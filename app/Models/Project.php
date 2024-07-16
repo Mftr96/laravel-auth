@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+//importo la classe Tecnology per la funzione many to many 
+use App\Models\Tecnology;
 class Project extends Model
 {
     use HasFactory;
@@ -21,5 +22,9 @@ class Project extends Model
     public function type()
     {
         return $this->belongsTo(Type::class);
+    }
+
+    public function tecnologies(){
+        return $this->belongsToMany(Tecnology::class);
     }
 }

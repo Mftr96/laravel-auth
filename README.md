@@ -332,3 +332,46 @@ Il file Create_projects_table viene implementato con la migration aggiornata (up
 dopo aver fatto la popolazione dati, la nuova colonna è già disponibile dalle crud poichè il nuovo dato fa parte sempre di project
 
 andando nel file index sulla cartella, aggiungo l'interpolata {{$progetti->type->name}}
+
+--------------------------------------------
+bonus(da compilare e finire)
+
+
+----
+lavoro del 16/07/2024
+creazione nuovo modello Tecnology con relativo controller, migration e seeder e creare tabella ponte con Tecnology e Project
+passaggi da eseguire:
+Creo il modello Tecnology con i relativi controller, migration e seeder tramite il comando 
+
+```bash
+php artisan make:model Tecnology -rms
+```
+
+dopo aver lanciato il comando, andare a lavorare sulla migration , indicando, nome ed icona 
+
+```php
+//file 2024_07_16_131111_create_tecnologies_table.php
+ public function up(): void
+    {
+        Schema::create('tecnologies', function (Blueprint $table) {
+            $table->id();
+            $table->string("name");
+            $table->string("icon");
+            $table->timestamps();
+        });
+    }
+```
+Dopo il lavoro sulla migration, procedere sul model scrivendo la relazione many to many 
+
+```php
+    //scrivo la funzione per collegare Tecnology a Project
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
+
+```
+e fare lo stesso nel Model Project 
+
+popolare il seeder della tabella Tecnology e aggiungere il seeder TecnologySeeder nel DatabaseSeeder sennò quando fai il comando fresh non viene eseguito il seeder di Tecnology
+
+dopo che la nuova semina è andata a buon fine, vado ad implementare la rotta di Tecnology nel file web.php e scrivo le C.R.U.D. di Tecnology

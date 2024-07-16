@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -38,12 +39,14 @@ class ProjectController extends Controller
         $data = $request->validate([
             "name" => "required|min:5|max:50",
             "description" => "required|min:10|max:200",
-            "creation_date" => "required|date",
+            "creation_date"=>"required|date",
+            "type_id"=>"required",
         ]);
         $newProject = new Project();
+        $newProject->creation_date=date("y.m.d.");
         $newProject->is_completed=false;
         $newProject->fill($data);
-        dump($data);
+        ddd($data);
         
         $newProject->save();
         return redirect()->route('project.show', ['project' => $newProject]);
