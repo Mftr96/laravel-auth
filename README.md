@@ -375,3 +375,5 @@ e fare lo stesso nel Model Project
 popolare il seeder della tabella Tecnology e aggiungere il seeder TecnologySeeder nel DatabaseSeeder sennò quando fai il comando fresh non viene eseguito il seeder di Tecnology
 
 dopo che la nuova semina è andata a buon fine, vado ad implementare la rotta di Tecnology nel file web.php e scrivo le C.R.U.D. di Tecnology
+
+creare le viste relative alle C.R.U.D.
