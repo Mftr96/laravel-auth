@@ -376,4 +376,19 @@ popolare il seeder della tabella Tecnology e aggiungere il seeder TecnologySeede
 
 dopo che la nuova semina è andata a buon fine, vado ad implementare la rotta di Tecnology nel file web.php e scrivo le C.R.U.D. di Tecnology
 
-creare le viste relative alle C.R.U.D.
+creare le viste relative alle C.R.U.D.(copiandole da project e assicurandosi che i name degli input coincidano con i nomi delle colonne della tabella Tecnology)
+
+dopo aver testato che le viste funzionano,creare tabella ponte 
+
+usare quindi il seguente comando:
+
+```bash
+php artisan make:migration create_tecnology_project_table
+```
+e vado a popolare la tabella con i seguenti campi:
+
+```php
+            $table->foreignId('project_id')->constrained();
+            $table->foreignId('tecnology_id')->contrained();
+
+```

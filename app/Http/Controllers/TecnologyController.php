@@ -16,10 +16,10 @@ class TecnologyController extends Controller
         $techs = Tecnology::all();
         $data =
             [
-                'Tecnologie' => $techs,
+                'tecnologie' => $techs,
 
             ];
-        return view('tecnology.index', $data);
+        return view('tecnologies.index', $data);
     }
 
     /**
@@ -27,7 +27,7 @@ class TecnologyController extends Controller
      */
     public function create()
     {
-        return view('tecnology.create');
+        return view('tecnologies.create');
 
     }
 
@@ -58,7 +58,8 @@ class TecnologyController extends Controller
         $data = [
             'tech' => $tecnology,
         ];
-        return view('tecnology.show', $data);
+        //fa riferimento a come hai chiamato la cartella con le viste, ovvero tecnologies
+        return view('tecnologies.show', $data);
     }
 
     /**
@@ -69,7 +70,8 @@ class TecnologyController extends Controller
         $data = [
             'tecnology' => $tecnology,
         ];
-        return view('tecnology.edit', $data);
+        //view fa riferimento alla cartella view
+        return view('tecnologies.edit', $data);
     }
 
     /**

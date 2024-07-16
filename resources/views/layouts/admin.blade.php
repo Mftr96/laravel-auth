@@ -65,6 +65,11 @@
                                     <i class="fa-solid fa-list fa-lg fa-fw me-2"></i> Type List
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.tecnology.index') }}">
+                                    <i class="fa-solid fa-list fa-lg fa-fw me-2"></i> Tecnology List
+                                </a>
+                            </li>
 
 
 
@@ -79,6 +84,15 @@
                                     <i class="fa-solid fa-plus fa-lg fa-fw me-2"></i> Add Type Project
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.tecnology.create') }}">
+                                    <i class="fa-solid fa-plus fa-lg fa-fw me-2"></i>Add Technology
+                                </a>
+                            </li>
+
+                         
+
 
 
                         </ul>
