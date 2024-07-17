@@ -98,18 +98,18 @@ class ProjectController extends Controller
         $project->name= $data['name'];
         $project->description= $data['description'];
         $project->creation_date= $data['creation_date'];
-        $project->cover_image=$data['cover_image'];
-
+        
         if ($request->has('cover_image')) {
             // save the image
             $image_path = Storage::put('uploads', $request->cover_image);
-            $val_data['cover_image'] = $image_path;
-
+            $val_data['cover_image'] = $image_path;         
+            
             if ($project->cover_image && !Str::start($project->cover_image, 'http')) {
                 // not null and not startingn with http
                 Storage::delete($project->cover_image);
             }
         }
+        $project->cover_image=$val_data['cover_image'];
         $project->update();
 
         return redirect()->route('project.show', ['project'=> $project] );
@@ -120,8 +120,17 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
-    {   
+    { 
+        
+        if ($project->cover_image && !Str::start($project->cover_image, 'http')) {
+            // not null and not startingn with http
+            Storage::delete($project->cover_image);
+        }
+
+
         $project->delete();
-        return redirect()->route('project.index');
+
+        return to_route('projects.index')->with('message', 'Project Deleted');  
+        
     }
 }
