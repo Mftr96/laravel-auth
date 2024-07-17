@@ -419,3 +419,8 @@ fatti questi passi possiamo lanciare il seguente comando per linkare la cartella
 ```bash
 php artisan storage:link
 ```
+per quanto riguarda il caricamento delle immagini, vado a scrivere sulla tabella update della migration Project (attenzione al form!)
+per quanto riguarda i dati della migration , può essere utile andare a scrivere nullable() nella migration di modo che la tabella viene comunque caricata lo stesso sul database dando la possibilità in un secondo momento di modificare la colonna della tabella(utile per quando si aggiungono colonne nuove)
+
+andare poi a modificare le viste create e l'update relative a Project
+modificare anche le relative C.R.U.D.(da modificare dovrebbe essere solo lo store) 

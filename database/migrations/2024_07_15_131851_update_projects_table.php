@@ -15,6 +15,7 @@ return new class extends Migration
     {
         //comando che richiama tabella Projects(?)
         Schema::table('projects', function (Blueprint $table) {
+            $table->string('cover_image')->nullable();
             $table->foreignId('type_id')->constrained();
         });
     }

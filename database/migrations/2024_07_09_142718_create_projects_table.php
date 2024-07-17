@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             //creazione colonne tabella 
-            $table->string("name");
-            $table->string("description");
+            $table->string("name")->nullable();
+            $table->string("description")->nullable();
             $table->date("creation_date");
             $table->boolean("is_completed");    
         });

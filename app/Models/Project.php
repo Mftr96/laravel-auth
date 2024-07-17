@@ -13,9 +13,10 @@ class Project extends Model
     protected $fillable = [
         "name",
         "description",
-        "img",
         "type_id",
-        "is_completed"
+        "is_completed",
+        //aggiunto cover_image nei valori del $fillable
+        "cover_image",
     ];
 
     //Tutti i Project avranno un metodo che restituisce la categoria a cui appartengono

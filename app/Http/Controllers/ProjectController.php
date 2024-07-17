@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+
 
 class ProjectController extends Controller
 {
@@ -43,6 +47,17 @@ class ProjectController extends Controller
             "type_id"=>"required",
         ]);
         $newProject = new Project();
+        /*condizione che controlla se c'è già o meno una foto 
+        nel database e nel caso la sovrascrive per evitare sovraccarico dati*/
+        if ($request->has('cover_image')) {
+            // save the image
+
+            $image_path = Storage::put('uploads', $request->cover_image);
+            $val_data['cover_image'] = $image_path;
+            //dd($image_path, $val_data);
+        }
+        //dd($val_data);
+
         $newProject->creation_date=date("y.m.d.");
         $newProject->is_completed=false;
         $newProject->fill($data);
@@ -83,8 +98,19 @@ class ProjectController extends Controller
         $project->name= $data['name'];
         $project->description= $data['description'];
         $project->creation_date= $data['creation_date'];
+        $project->cover_image=$data['cover_image'];
 
-        $project->save();
+        if ($request->has('cover_image')) {
+            // save the image
+            $image_path = Storage::put('uploads', $request->cover_image);
+            $val_data['cover_image'] = $image_path;
+
+            if ($project->cover_image && !Str::start($project->cover_image, 'http')) {
+                // not null and not startingn with http
+                Storage::delete($project->cover_image);
+            }
+        }
+        $project->update();
 
         return redirect()->route('project.show', ['project'=> $project] );
     }
