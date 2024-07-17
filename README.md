@@ -392,3 +392,30 @@ e vado a popolare la tabella con i seguenti campi:
             $table->foreignId('tecnology_id')->contrained();
 
 ```
+
+
+----------------------
+
+Esercizio di oggi: Laravel Boolfolio - Cover Image
+nome repo: laravel-auth
+Continuiamo a lavorare nella repo dei giorni scorsi e aggiungiamo un’immagine ai nostri progetti. Ricordiamoci di creare il symlink con l’apposito comando artisan e di aggiungere l’attributo enctype="multipart/form-data" ai form di creazione e di modifica e ricordate che anche in cancellazione c'é un operazione da effettuare!
+
+
+esecuzione :
+andiamo a lavorare sul file filesystem.php nella cartella config e a rigo 16 cambiamo da local a public
+
+```php
+    'default' => env('FILESYSTEM_DISK', 'public'),//cambiare il secondo argomento della parentesi da local in public
+```
+
+successivamente andare a modificare nel file .env alla voce FILESYSTEM_DISK allo stesso modo 
+
+```env
+FILESYSTEM_DISK=public
+;cambiare da local a public
+```
+
+fatti questi passi possiamo lanciare il seguente comando per linkare la cartella public
+```bash
+php artisan storage:link
+```
