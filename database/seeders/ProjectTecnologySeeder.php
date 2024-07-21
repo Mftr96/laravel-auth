@@ -16,10 +16,13 @@ class ProjectTecnologySeeder extends Seeder
      */
     public function run(Faker $faker, Tecnology $tecnology): void
     {
-              //parto recuperando un progetto
+              //parto recuperando un progetto tramite find
               $project=Project::find(1);
+              //recupero le Tecnologie tramite find
               $tecnology=Tecnology::find(1);
+              //"appiccico" la Tecnologia al Progetto
               $project->tecnologies()->attach(1);
+              //salvo il progetto con la Tecnologia
               $project->save();
     }
 }

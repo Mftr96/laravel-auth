@@ -16,6 +16,11 @@ return new class extends Migration
         //comando che richiama tabella Projects(?)
         Schema::table('projects', function (Blueprint $table) {
             $table->string('cover_image')->nullable();
+            /*aggiungo il type_id per la relazione one to many
+            ricordati che deve essere creata prima la tabella Type e poi 
+            la tabella Project per non creare errori, oppure crei la tabella Project,
+            poi la type e aggiorni con una nuova migration la tabella Project
+            */
             $table->foreignId('type_id')->constrained();
         });
     }
