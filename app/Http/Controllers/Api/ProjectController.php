@@ -20,15 +20,26 @@ class ProjectController extends Controller
    //creo funzione show che vada a recuperare il singolo progetto da mostrare poi lato front-end
    //nella show devo passare come argomento l'id del progetto che viene usato nella funzione where
    public function show($id){
-    return response()->json([
-      'success'=>true,
-      'project'=>Project::with('tecnologies')->where('id',$id)->first(),
-    ]);
-    /*recupero un Progetto 
-    (funzione with serve per recuperare tecnologies
-     dalla many to many)*/                                   //prende solo il primo risultato
+     /*recupero un Progetto 
+      (funzione with serve per recuperare tecnologies
+       dalla many to many)*/                                   //prende solo il primo risultato
+       $project=Project::with('tecnologies')->where('id',$id)->first();
+    /*bonus:aggiungo la condizione che richieda che esista 
+    il progetto in chiamata, in caso contrario viene dato false a success per mandare poi alla 
+    pagina NotFound
+    */
+      if ($project) {
+        return response()->json([
+            'success' => true,
+            'project' => $project
+        ]);
+    } else {
+        return response()->json([
+            'success' => false,
+            'message' => 'not found'
+        ]);
+    }
     
-
    }
 
 }

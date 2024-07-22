@@ -440,14 +440,25 @@ esecuzione traccia 22/07/2024 lato laravel:
 andare a creare una funzione show nel controller API ProjectController che vada a creare una chiamata http per un singolo progetto.
 
 ```php
-   //creo funzione show che vada a recuperare il singolo progetto da mostrare poi lato front-end
-   //nella show devo passare come argomento l'id del progetto
+     //creo funzione show che vada a recuperare il singolo progetto da mostrare poi lato front-end
+   //nella show devo passare come argomento l'id del progetto che viene usato nella funzione where
    public function show($id){
-    /*recupero un Progetto 
-    (funzione with serve per recuperare tecnologies
-     dalla many to many)*/                                   //prende solo il primo risultato
-    $project=Project::with('tecnologies')->where('id',$id)->first();
+    // importante il return sennò non ti restituisce nulla la chiamata
+    return response()->json([
+      'success'=>true,
+      /*recupero un Progetto 
+      (funzione with serve per recuperare tecnologies
+       dalla many to many)*/                                   //prende solo il primo risultato
+      'project'=>Project::with('tecnologies')->where('id',$id)->first(),
+    ]);
+    
 
    }
+
 ```
 includo poi questa rotta nelle rotte API nel file api.php
+
+```php 
+//recupero la rotta del singolo progetto 
+Route::get('projects/{project}',[ProjectController::class,'show']);
+```
