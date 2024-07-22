@@ -424,3 +424,30 @@ per quanto riguarda i dati della migration , può essere utile andare a scrivere
 
 andare poi a modificare le viste create e l'update relative a Project
 modificare anche le relative C.R.U.D.(da modificare dovrebbe essere solo lo store) 
+--------
+Oggi proseguite con l'implementazione di vue-router come visto stamattina in classe, stesse repo di ieri.
+Descrizione:
+completa implementazione assegnata venerdi (se incompleta)
+LARAVEL: crea un nuovo endpoint API per gestire le richieste per i singoli progetti
+
+VUE: Crea componente per mostrare il singolo progetto e fai partire da li una nuova chiamata all'endpoint appena creato
+
+Bonus:
+Implementazione della rotta catch all e pagina 404
+aggiungi lo slug ai progetti, ricordandoti di aggiornare sia la parte di Laravel  che Vue (fate una branch separata).
+
+esecuzione traccia 22/07/2024 lato laravel:
+andare a creare una funzione show nel controller API ProjectController che vada a creare una chiamata http per un singolo progetto.
+
+```php
+   //creo funzione show che vada a recuperare il singolo progetto da mostrare poi lato front-end
+   //nella show devo passare come argomento l'id del progetto
+   public function show($id){
+    /*recupero un Progetto 
+    (funzione with serve per recuperare tecnologies
+     dalla many to many)*/                                   //prende solo il primo risultato
+    $project=Project::with('tecnologies')->where('id',$id)->first();
+
+   }
+```
+includo poi questa rotta nelle rotte API nel file api.php

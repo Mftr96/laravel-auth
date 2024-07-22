@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('projects',[ProjectController::class,'index']);
+//recupero la rotta del singolo progetto 
+Route::get('projects/{project}',[ProjectController::class,'show']);
