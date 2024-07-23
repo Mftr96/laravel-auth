@@ -22,9 +22,9 @@ class LeadController extends Controller
         il secondo è array con i dati da validare, facendo attenzione che le chiavi combacino sempre con i name nel form lato front-end)
         */
         $validator=Validator::make($data,[
-            'name'=>'required'|'min:2',
-            'email'=>'required'|'mail',
-            'description'=>'required'|'max:300'
+            'name'=>'required|min:2',
+            'email'=>'required|mail',
+            'description'=>'required|max:300',
         ]);
         /*pongo controllo sulla variabile $validator:se non supera il controllo,
          la chiamata API restituirà false alla voce 'success'

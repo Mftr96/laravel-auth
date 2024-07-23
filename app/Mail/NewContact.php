@@ -21,9 +21,9 @@ class NewContact extends Mailable
     se voglio passare la public devo mettere come argomento public $lead 
     in construct
     */
-    public function __construct( $_lead)
+    public function __construct( $lead)
     {
-        $this->lead=$_lead;
+        $this->lead=$lead;
     }
 
     /**
@@ -32,7 +32,7 @@ class NewContact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            replyTo:$this->lead->email,
+            //replyTo:$this->lead->email,
             subject: 'nuovo contatto',
         );
     }

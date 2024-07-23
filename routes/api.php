@@ -26,3 +26,5 @@ Route::get('projects/{project}',[ProjectController::class,'show']);
 
 //rotta per gestire la chiamata API contact
 Route::get('/contact',[LeadController::class,'store']);
+
+//posso nella rotta passare anche dei dati prestabiliti
