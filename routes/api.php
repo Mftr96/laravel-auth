@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController; 
+use App\Http\Controllers\Api\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('projects',[ProjectController::class,'index']);
 //recupero la rotta del singolo progetto 
 Route::get('projects/{project}',[ProjectController::class,'show']);
+
+//rotta per gestire la chiamata API contact
+Route::get('/contact',[LeadController::class,'store']);
